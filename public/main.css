@@ -445,3 +445,30 @@ footer {
   color: white;
   margin-right: 10px;
 }
+
+.quantity {
+  display: flex;
+}
+
+.quntity-metrics {
+  display: flex;
+  border: 1px solid black;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.minus {
+  border-right: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.plus {
+  border-left: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.number {
+  padding: 5px;
+}

@@ -5,6 +5,7 @@ import { database } from "../../../firebaseConfig";
 
 export const LaptopDetails = () => {
     const [currentLaptop, setCurrentLaptop] = useState([]);
+    const [quantity, setQuantity] = useState(1);
     const { laptopId } = useParams();
 
     useEffect(() => {
@@ -12,6 +13,18 @@ export const LaptopDetails = () => {
             setCurrentLaptop({ ...snapshot.data(), id: snapshot.id });
         })
     }, []);
+
+    const minus = () => {
+        if (quantity < 2) {
+            return;
+        }
+
+        setQuantity(state => state -= 1);
+    }
+
+    const plus = () => {
+        setQuantity(state => state += 1);
+    }
 
     return (
         <div className="laptop-details">
@@ -25,7 +38,14 @@ export const LaptopDetails = () => {
                     <p>{currentLaptop.description}</p>
                 </div>
                 <h2 className="price">{currentLaptop.price}$</h2>
-                <h4>Quantity: 1</h4>
+                <div className="quantity">
+                    <h4>Quantity: </h4>
+                    <div className="quntity-metrics">
+                        <span className="minus" onClick={minus}>-</span>
+                        <p className="number">{quantity}</p>
+                        <span className="plus" onClick={plus}>+</span>
+                    </div>
+                </div>
                 <div className="details-buttons">
                     <button className="add">Add to cart</button>
                     <button className="buy">Buy now</button>
