@@ -26,14 +26,6 @@ export const Header = () => {
                     </Link>
                 </div>
                 <div className="navbar-actions">
-                    <form className="navbar-form">
-                        <input
-                            type="text"
-                            name="search"
-                            placeholder="I'm looking for..."
-                            className="navbar-form-search"
-                        />
-                    </form>
                     <Link to="/login" className="navbar-signin">
                         <span>Login</span>
                     </Link>

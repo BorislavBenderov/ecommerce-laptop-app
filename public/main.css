@@ -9,7 +9,8 @@ nav {
 
 .navbar,
 .banner,
-.laptops {
+.laptops,
+.laptop-details {
   padding: 0 var(--px);
 }
 
@@ -77,37 +78,6 @@ nav {
 .navbar-actions {
   display: flex;
   align-items: center;
-}
-
-.navbar-form {
-  position: relative;
-  margin-right: 50px;
-}
-
-.navbar-form-search {
-  background: var(--oxford-blue);
-  width: 100%;
-  padding: 12px 20px;
-  border-radius: 15px;
-  color: var(--off-white);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-5);
-}
-
-.navbar-form-btn {
-  background: var(--oxford-blue);
-  position: absolute;
-  top: calc(50% - 10px);
-  right: 10px;
-}
-
-.navbar-form-search::placeholder {
-  color: var(--off-white);
-}
-
-.navbar-form-close,
-.navbar-search-btn {
-  display: none;
 }
 
 .navbar-signin {
@@ -439,4 +409,39 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%);
+}
+
+.laptop-details {
+  display: flex;
+}
+
+.laptop-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 40px;
+}
+
+.laptop-image>img {
+  border-radius: 16px;
+}
+
+.price {
+  color: red;
+}
+
+.buy {
+  padding: 5px 23px;
+  border: 1px solid black;
+  background-color: white;
+  color: red;
+}
+
+
+.add {
+  padding: 5px 15px;
+  border: 1px solid black;
+  background-color: red;
+  color: white;
+  margin-right: 10px;
 }
