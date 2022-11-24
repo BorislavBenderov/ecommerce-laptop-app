@@ -233,19 +233,7 @@ input~.checked-radio-bg {
   transform: scale(1.1);
 }
 
-.laptops-card .card-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  backdrop-filter: blur(5px);
-}
-
-.laptops-card:hover .card-overlay {
-  opacity: 1;
-}
-
-.laptops-card .bookmark,
-.laptops-card .rating {
+.laptops-card .bookmark {
   position: absolute;
   top: 15px;
   padding: 6px;
@@ -263,19 +251,6 @@ input~.checked-radio-bg {
   color: var(--yellow);
 }
 
-.laptops-card .rating {
-  display: flex;
-  align-items: center;
-  right: 15px;
-  background: var(--oxford-blue-50);
-}
-
-.laptops-card .rating span {
-  color: var(--white);
-  font-size: 13px;
-  font-weight: var(--fw-5);
-  margin-left: 5px;
-}
 
 .laptops-card .play {
   position: absolute;
@@ -284,7 +259,7 @@ input~.checked-radio-bg {
   transform: translate(-50%, -50%) scale(var(--scale));
 }
 
-.laptops-card:hover :is(.bookmark, .rating, .play) {
+.laptops-card:hover :is(.bookmark, .play) {
   --scale: 1;
 }
 

@@ -13,12 +13,11 @@
 html { font-family: var(--ff-inter); }
 
 
-h1, h2, h3, h4, h5, h6 { color: var(--white); }
+h1, h2, h3, h4, h5, h6 { color: black; }
 
 
 body {
   background-color:  white;
-  color: var(--off-white);
   -webkit-font-smoothing: antialiased;
 }
 
