@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export const Header = () => {
     return (
         <header className="">
             <div className="navbar">
                 <div className="navbar-nav">
-                    <a to="/" className="navbar-link">
+                    <Link to="/" className="navbar-link">
                         Home
-                    </a>
+                    </Link>
                 </div>
                 <div className="navbar-actions">
                     <form className="navbar-form">
@@ -16,22 +18,22 @@ export const Header = () => {
                             className="navbar-form-search"
                         />
                     </form>
-                    <a to="/login" className="navbar-signin">
+                    <Link to="/login" className="navbar-signin">
                         <span>Login</span>
-                    </a>
-                    <a to="/register" className="navbar-signin">
+                    </Link>
+                    <Link to="/register" className="navbar-signin">
                         <span>Register</span>
-                    </a>
+                    </Link>
                     <span>email</span>
-                    <a to="/order" className="navbar-signin">
+                    <Link to="/order" className="navbar-signin">
                         <span>My Order</span>
-                    </a>
-                    <a to="/create" className="navbar-signin">
+                    </Link>
+                    <Link to="/create" className="navbar-signin">
                         <span>Create Order</span>
-                    </a>
-                    <a to="#" className="navbar-signin">
+                    </Link>
+                    <Link to="#" className="navbar-signin">
                         <span>Logout</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>
