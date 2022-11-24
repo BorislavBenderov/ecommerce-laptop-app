@@ -17,7 +17,7 @@ export const Register = () => {
         const repeatPassword = formData.get('repeatPassword');
 
         if (email === '' || password === '' || repeatPassword === '') {
-            alert('Please fill all of the fields!');
+            alert('Please fill all the fields!');
             return;
         }
 
