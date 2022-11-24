@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import LaptopImg from '../../assets/laptop.jpg';
+import { LaptopContext } from '../../contexts/LaptopContext';
 
 export const Laptops = () => {
+    const { laptops } = useContext(LaptopContext);
+    console.log(laptops);
     return (
         <>
             <section className="banner">
