@@ -8,6 +8,7 @@ import { LaptopContextProvider } from './contexts/LaptopContext';
 import { UserContextProvider } from "./contexts/UserContext";
 import { LaptopDetails } from "./components/laptops/laptop-details/LaptopDetails";
 import { Cart } from "./components/laptops/Cart";
+import { Create } from "./components/admin/Create";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Laptops />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/create" element={<Create />} />
               <Route path="/details/:laptopId" element={<LaptopDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
