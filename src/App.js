@@ -9,6 +9,7 @@ import { UserContextProvider } from "./contexts/UserContext";
 import { LaptopDetails } from "./components/laptops/laptop-details/LaptopDetails";
 import { Cart } from "./components/laptops/Cart";
 import { Create } from "./components/admin/Create";
+import { Edit } from "./components/admin/Edit";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/create" element={<Create />} />
               <Route path="/details/:laptopId" element={<LaptopDetails />} />
+              <Route path="/edit/:laptopId" element={<Edit />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>

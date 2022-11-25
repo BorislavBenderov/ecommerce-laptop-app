@@ -1,6 +1,6 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
@@ -9,7 +9,7 @@ export const LaptopDetails = () => {
     const { currentLaptop, setCurrentLaptop } = useContext(LaptopContext);
     const { laptopId } = useParams();
     const [quantity, setQuantity] = useState(1);
-    
+
 
     useEffect(() => {
         onSnapshot(doc(database, 'laptops', laptopId), (snapshot) => {
@@ -50,8 +50,10 @@ export const LaptopDetails = () => {
                     </div>
                 </div>
                 <div className="details-buttons">
-                    <AddToCart currentLaptop={currentLaptop} quantity={quantity}/>
+                    <AddToCart currentLaptop={currentLaptop} quantity={quantity} />
                     <button className="buy">Buy now</button>
+                    <Link to={`/edit/${currentLaptop.id}`} className="buy">Edit</Link>
+                    <button className="buy">Delete</button>
                 </div>
             </section>
         </div>
