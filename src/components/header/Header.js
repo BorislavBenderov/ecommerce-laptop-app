@@ -2,10 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { signOut } from 'firebase/auth';
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
+import { UserContext } from "../../contexts/UserContext";
 
 export const Header = () => {
-    const { auth } = useContext(AuthContext);
+    const { auth, loggedUser } = useContext(AuthContext);
+    const { users } = useContext(UserContext);
     const navigate = useNavigate();
+
+    const currentUser = users.find(user => user.uid === loggedUser?.uid);
     
     const onLogout = () => {
         signOut(auth)
@@ -34,7 +38,7 @@ export const Header = () => {
                     </Link>
                     <span>email</span>
                     <Link to="/order" className="navbar-signin">
-                        <span>My Order</span>
+                        <span>My Cart - {currentUser?.cart.length}</span>
                     </Link>
                     <Link to="/create" className="navbar-signin">
                         <span>Create Order</span>
