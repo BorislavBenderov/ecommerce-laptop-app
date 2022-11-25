@@ -1,6 +1,6 @@
-import { doc, onSnapshot } from "firebase/firestore";
+import { deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
@@ -8,6 +8,7 @@ import { AddToCart } from "./AddToCart";
 export const LaptopDetails = () => {
     const { currentLaptop, setCurrentLaptop } = useContext(LaptopContext);
     const { laptopId } = useParams();
+    const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
 
 
@@ -27,6 +28,22 @@ export const LaptopDetails = () => {
 
     const plus = () => {
         setQuantity(state => state += 1);
+    }
+
+    const onDelete = (e) => {
+        const confirmation = window.confirm('Are you sure you want to delete this post?');
+
+        if (confirmation) {
+            e.preventDefault();
+
+            deleteDoc(doc(database, 'laptops', laptopId))
+                .then(() => {
+                    navigate('/');
+                })
+                .catch((err) => {
+                    alert(err.message);
+                })
+        }
     }
 
     return (
@@ -53,7 +70,7 @@ export const LaptopDetails = () => {
                     <AddToCart currentLaptop={currentLaptop} quantity={quantity} />
                     <button className="buy">Buy now</button>
                     <Link to={`/edit/${currentLaptop.id}`} className="buy">Edit</Link>
-                    <button className="buy">Delete</button>
+                    <button className="buy" onClick={onDelete}>Delete</button>
                 </div>
             </section>
         </div>
