@@ -2,6 +2,8 @@ import { browserLocalPersistence, createUserWithEmailAndPassword, setPersistence
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
+import { database } from '../../firebaseConfig';
 
 export const Register = () => {
     const { auth } = useContext(AuthContext);
@@ -29,7 +31,12 @@ export const Register = () => {
         setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 createUserWithEmailAndPassword(auth, email, password)
-                    .then(() => {
+                    .then((res) => {
+                        setDoc(doc(database, 'users', res.user.uid), {
+                            displayName: email,
+                            uid: res.user.uid
+                        });
+
                         navigate('/');
                     })
                     .catch((err) => {
