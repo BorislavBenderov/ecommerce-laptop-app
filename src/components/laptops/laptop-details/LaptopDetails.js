@@ -1,13 +1,15 @@
 import { doc, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
 
 export const LaptopDetails = () => {
-    const [currentLaptop, setCurrentLaptop] = useState([]);
-    const [quantity, setQuantity] = useState(1);
+    const { currentLaptop, setCurrentLaptop } = useContext(LaptopContext);
     const { laptopId } = useParams();
+    const [quantity, setQuantity] = useState(1);
+    
 
     useEffect(() => {
         onSnapshot(doc(database, 'laptops', laptopId), (snapshot) => {

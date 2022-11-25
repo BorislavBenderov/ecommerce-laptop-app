@@ -7,6 +7,7 @@ import { AuthContextProvider } from './contexts/AuthContext';
 import { LaptopContextProvider } from './contexts/LaptopContext';
 import { UserContextProvider } from "./contexts/UserContext";
 import { LaptopDetails } from "./components/laptops/laptop-details/LaptopDetails";
+import { Cart } from "./components/laptops/Cart";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Laptops />} />
+              <Route path="/cart" element={<Cart />} />
               <Route path="/details/:laptopId" element={<LaptopDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

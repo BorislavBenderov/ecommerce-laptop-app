@@ -37,8 +37,8 @@ export const Header = () => {
                         <span>Register</span>
                     </Link>
                     <span>email</span>
-                    <Link to="/order" className="navbar-signin">
-                        <span>My Cart - {currentUser?.cart.length}</span>
+                    <Link to="/cart" className="navbar-signin">
+                        <span>My Cart - {currentUser?.cart?.length}</span>
                     </Link>
                     <Link to="/create" className="navbar-signin">
                         <span>Create Order</span>

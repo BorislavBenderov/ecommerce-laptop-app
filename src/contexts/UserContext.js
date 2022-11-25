@@ -1,11 +1,14 @@
 import { collection, onSnapshot } from "firebase/firestore";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { database } from "../firebaseConfig";
+import { AuthContext } from "./AuthContext";
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
+    const { loggedUser } = useContext(AuthContext);
+    const currentUser = users.find(user => user.uid === loggedUser?.uid);
 
     useEffect(() => {
         onSnapshot(collection(database, 'users') , (snapshot) => {
@@ -16,7 +19,7 @@ export const UserContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ users }}>
+        <UserContext.Provider value={{ users, currentUser }}>
             { children }
         </UserContext.Provider>
     );
