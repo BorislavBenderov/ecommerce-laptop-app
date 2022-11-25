@@ -2,6 +2,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { database } from "../../../firebaseConfig";
+import { AddToCart } from "./AddToCart";
 
 export const LaptopDetails = () => {
     const [currentLaptop, setCurrentLaptop] = useState([]);
@@ -47,7 +48,7 @@ export const LaptopDetails = () => {
                     </div>
                 </div>
                 <div className="details-buttons">
-                    <button className="add">Add to cart</button>
+                    <AddToCart currentLaptop={currentLaptop} quantity={quantity}/>
                     <button className="buy">Buy now</button>
                 </div>
             </section>
