@@ -10,9 +10,6 @@
 
 
   header {
-    position: fixed;
-    top:  0;
-    left: 0;
     width: 100%;
     overflow: hidden;
     z-index: 50;
@@ -103,9 +100,6 @@
   }
 
   .banner { display: none; }
-
-
-  .laptops { margin-top: 120px; }
 
   .filter-bar {
     flex-direction: column;

@@ -64,13 +64,3 @@ a {
   text-decoration: none;
   display: block;
 }
-
-::-webkit-scrollbar {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rebeccapurple;
-  border-radius: 5em;
-  border: 3px solid var(--rich-black-fogra-29);
-}

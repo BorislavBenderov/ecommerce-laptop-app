@@ -1,12 +1,14 @@
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { database } from "../../../firebaseConfig";
 
-export const AddToCart = ({ currentLaptop }) => {
+export const BuyNow = ({ currentLaptop }) => {
     const { loggedUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const addedToCart = () => {
+    const onBuy = () => {
         updateDoc(doc(database, 'users', loggedUser.uid), {
             cart: arrayUnion({
                 title: currentLaptop.title,
@@ -16,7 +18,7 @@ export const AddToCart = ({ currentLaptop }) => {
             })
         })
             .then(() => {
-                alert('Added to Cart!');
+                navigate('/cart');
             })
             .catch((err) => {
                 alert(err.message);
@@ -24,6 +26,6 @@ export const AddToCart = ({ currentLaptop }) => {
     }
 
     return (
-        <button className="add" onClick={addedToCart}>Add to cart</button>
+        <button className="buy" onClick={onBuy}>Buy now</button>
     );
 }

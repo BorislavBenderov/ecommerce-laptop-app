@@ -9,6 +9,8 @@ export const UserContextProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const { loggedUser } = useContext(AuthContext);
     const currentUser = users.find(user => user.uid === loggedUser?.uid);
+    const totalPrice = currentUser?.cart.reduce((acc, curVal) => acc + Number(curVal.price),
+    0);
 
     useEffect(() => {
         onSnapshot(collection(database, 'users') , (snapshot) => {
@@ -19,7 +21,7 @@ export const UserContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ users, currentUser }}>
+        <UserContext.Provider value={{ users, currentUser, totalPrice }}>
             { children }
         </UserContext.Provider>
     );

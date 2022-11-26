@@ -6,7 +6,7 @@ import { database } from '../../firebaseConfig';
 import './payment.css';
 
 export const Payment = () => {
-    const { currentUser } = useContext(UserContext);
+    const { currentUser, totalPrice } = useContext(UserContext);
     const navigate = useNavigate();
 
     const onPay = (e) => {
@@ -49,15 +49,15 @@ export const Payment = () => {
                     <div className="ordered-sum">
                         <section className="subtotal">
                             <p>Subtotal</p>
-                            <p>$250</p>
+                            <p>${totalPrice}</p>
                         </section>
                         <section className="shipping">
-                            <p>Shipping</p>
-                            <p>$10</p>
+                            <p>Free Shipping</p>
+                            <p>$0</p>
                         </section>
                         <section className="total">
                             <p>Totol due</p>
-                            <p>$250</p>
+                            <p>${totalPrice}</p>
                         </section>
                     </div>
                 </section>
