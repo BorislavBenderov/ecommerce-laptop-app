@@ -12,6 +12,7 @@ import { Create } from "./components/admin/Create";
 import { Edit } from "./components/admin/Edit";
 import { Payment } from "./components/laptops/Payment";
 import { Purchase } from "./components/laptops/Purchase";
+import { NotFound } from "./components/not-found/NotFound";
 import { ProtectedRoutes } from './protected-routes/ProtectedRoutes';
 import { ProtectedAdminRoutes } from './protected-routes/ProtectedAdminRoutes';
 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/details/:laptopId" element={<LaptopDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </LaptopContextProvider>

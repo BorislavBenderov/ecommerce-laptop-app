@@ -689,3 +689,7 @@ form * {
 .fa-trash {
   cursor: pointer;
 }
+
+.not-found-info h2 {
+  text-align: center;
+}
