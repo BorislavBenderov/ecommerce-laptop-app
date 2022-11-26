@@ -3,6 +3,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { CartItem } from './CartItem';
 import './cart.css';
 import { LaptopContext } from '../../contexts/LaptopContext';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
     const { currentUser } = useContext(UserContext);
@@ -21,7 +22,7 @@ export const Cart = () => {
                     <h3>$60</h3>
                 </div>
                 <div className="btn-container">
-                    <button className="btn">Pay</button>
+                    <Link to="/payment" className="btn">Pay</Link>
                 </div>
             </div>
         </div>

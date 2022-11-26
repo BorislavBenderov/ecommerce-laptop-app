@@ -67,7 +67,6 @@ a {
 
 ::-webkit-scrollbar {
   background: transparent;
-  border-left: 1px solid var(--oxford-blue);
 }
 
 ::-webkit-scrollbar-thumb {
