@@ -1,16 +1,46 @@
+import { deleteField, doc, updateDoc } from 'firebase/firestore';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { database } from '../../firebaseConfig';
 import './payment.css';
 
 export const Payment = () => {
     const { currentUser } = useContext(UserContext);
+    const navigate = useNavigate();
 
+    const onPay = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const country = formData.get('country');
+        const address = formData.get('address');
+        const postalCode = formData.get('postalCode');
+        const city = formData.get('city');
+
+        if (email === '' || country === '' || address === '' || postalCode === '' || city === '') {
+            alert("Please fill all fields!");
+            return;
+        }
+
+        updateDoc(doc(database, 'users', currentUser.uid), {
+            cart: deleteField()
+        })
+        .then(() => {
+            navigate('/purchase');
+        })
+        .catch((err) => {
+            alert(err.message);
+        })
+    }
     return (
         <div className="payment-container">
             <div className="cart-total-container">
                 <h1>Cart</h1>
                 <section className="ordered-details">
-                    {currentUser?.cart.map(laptop => <div className="ordered-item" key={laptop.id}>
+                    {currentUser?.cart?.map(laptop => <div className="ordered-item" key={laptop.id}>
                         <img src={laptop.image} alt="" />
                         <p>{laptop.title}</p>
                         <p>${laptop.price}</p>
@@ -35,7 +65,7 @@ export const Payment = () => {
             <div className="billing-container">
                 <h1>Details</h1>
                 <section className="details-container">
-                    <form className='auth'>
+                    <form className='auth' onSubmit={onPay}>
                         <label htmlFor="email"></label>
                         <input type="text" name="email" placeholder="Email" />
                         <label htmlFor="country"></label>
