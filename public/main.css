@@ -626,10 +626,11 @@ form * {
   font-weight: 300;
   resize: none;
   border: 1px solid black;
+  color: black;
 }
 
-::placeholder {
-  color: black;
+.payment input::placeholder {
+  color: rgba(93, 90, 90, 0.936);
 }
 
 .payment button {
@@ -643,4 +644,24 @@ form * {
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid black;
+}
+
+.purchase {
+  width: 1000px;
+  margin: 160px auto auto;
+  background-color: lightblue;
+  padding: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.purchase h2 {
+  text-transform: capitalize;
+  margin-top: 15px 0;
+  font-weight: 900;
+  font-size: 40px;
+  color: black;
 }

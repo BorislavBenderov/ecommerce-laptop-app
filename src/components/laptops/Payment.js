@@ -62,7 +62,7 @@ export const Payment = () => {
                 </section>
             </div>
             <div className="billing-container">
-                <h1>Details</h1>
+                <h1>Billing Details</h1>
                 <section className="details-container">
                     <form className='payment' onSubmit={onPay}>
                         <label htmlFor="email"></label>
