@@ -1,6 +1,7 @@
 import { deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
 import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
@@ -8,6 +9,7 @@ import { BuyNow } from "./BuyNow";
 
 export const LaptopDetails = () => {
     const { currentLaptop, setCurrentLaptop } = useContext(LaptopContext);
+    const { loggedUser } = useContext(AuthContext);
     const { laptopId } = useParams();
     const navigate = useNavigate();
 
@@ -48,8 +50,12 @@ export const LaptopDetails = () => {
                 <div className="details-buttons">
                     <AddToCart currentLaptop={currentLaptop} />
                     <BuyNow currentLaptop={currentLaptop} />
-                    <Link to={`/edit/${currentLaptop.id}`} className="buy">Edit</Link>
-                    <button className="buy" onClick={onDelete}>Delete</button>
+                    {loggedUser?.uid === 'tDBOgC5e3VUMwYQJEyECdljlKhV2'
+                        ? <>
+                            <Link to={`/edit/${currentLaptop.id}`} className="add">Edit</Link>
+                            <button className="buy" onClick={onDelete}>Delete</button>
+                        </>
+                        : ''}
                 </div>
             </section>
         </div>

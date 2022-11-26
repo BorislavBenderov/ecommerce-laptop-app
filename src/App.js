@@ -12,6 +12,7 @@ import { Create } from "./components/admin/Create";
 import { Edit } from "./components/admin/Edit";
 import { Payment } from "./components/laptops/Payment";
 import { Purchase } from "./components/laptops/Purchase";
+import { ProtectedRoutes } from './ProtectedRoutes';
 
 function App() {
   return (
@@ -21,13 +22,15 @@ function App() {
           <div className="App">
             <Header />
             <Routes>
+              <Route element={<ProtectedRoutes />}>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/purchase" element={<Purchase />} />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="/edit/:laptopId" element={<Edit />} />
+              </Route>
               <Route path="/" element={<Laptops />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/purchase" element={<Purchase />} />
-              <Route path="/payment" element={<Payment />} />
-              <Route path="/create" element={<Create />} />
               <Route path="/details/:laptopId" element={<LaptopDetails />} />
-              <Route path="/edit/:laptopId" element={<Edit />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
