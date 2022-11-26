@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { CartItem } from './CartItem';
-import './cart.css';
 import { Link } from 'react-router-dom';
 
 export const Cart = () => {

@@ -9,7 +9,7 @@ export const UserContextProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const { loggedUser } = useContext(AuthContext);
     const currentUser = users.find(user => user.uid === loggedUser?.uid);
-    const totalPrice = currentUser?.cart.reduce((acc, curVal) => acc + Number(curVal.price),
+    const totalPrice = currentUser?.cart?.reduce((acc, curVal) => acc + Number(curVal.price),
     0);
 
     useEffect(() => {
