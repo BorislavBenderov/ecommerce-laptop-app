@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { database } from '../../firebaseConfig';
-import './payment.css';
 
 export const Payment = () => {
     const { currentUser, totalPrice } = useContext(UserContext);
@@ -56,7 +55,7 @@ export const Payment = () => {
                             <p>$0</p>
                         </section>
                         <section className="total">
-                            <p>Totol due</p>
+                            <p>Total due</p>
                             <p>${totalPrice}</p>
                         </section>
                     </div>
@@ -65,7 +64,7 @@ export const Payment = () => {
             <div className="billing-container">
                 <h1>Details</h1>
                 <section className="details-container">
-                    <form className='auth' onSubmit={onPay}>
+                    <form className='payment' onSubmit={onPay}>
                         <label htmlFor="email"></label>
                         <input type="text" name="email" placeholder="Email" />
                         <label htmlFor="country"></label>

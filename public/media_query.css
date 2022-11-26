@@ -135,6 +135,19 @@
     width: 100%;
   }
 
+  .payment-container {
+    flex-direction: column;
+  }
+
+  .cart-total-container {
+    width: 100%;
+  }
+
+  .billing-container {
+    width: 100%;
+    margin-left: 0;
+    border: none;
+  }
 }
 
 @media screen and (max-width: 600px) {

@@ -520,3 +520,127 @@ footer {
   transform: scale(1);
   transition: transform .5s ease;
 }
+
+.payment-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 var(--px);
+}
+
+.cart-total-container {
+  width: 50%;
+}
+
+.cart-total-container>h1 {
+  margin-bottom: 20px;
+}
+
+.billing-container {
+  width: 50%;
+  margin-left: 10px;
+  border-left: 1px solid rgba(117, 111, 111, 0.277);
+}
+
+.ordered-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ordered-item>img {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.ordered-item>p {
+  margin: 0 5px;
+}
+
+.ordered-sum {
+  display: flex;
+  flex-direction: column;
+  padding-left: 100px;
+}
+
+.subtotal,
+.shipping,
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.subtotal>p,
+.shipping>p,
+.total>p {
+  margin: 0 5px;
+}
+
+.subtotal,
+.shipping {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(117, 111, 111, 0.277);
+}
+
+.payment {
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  padding: 0 35px;
+  margin: auto;
+}
+
+form * {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+.payment h3 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 42px;
+  text-align: center;
+}
+
+.payment label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+.payment input,
+.payment textarea {
+  display: block;
+  height: 35px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-weight: 300;
+  resize: none;
+  border: 1px solid black;
+}
+
+::placeholder {
+  color: black;
+}
+
+.payment button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: white;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid black;
+}
