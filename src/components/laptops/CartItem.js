@@ -19,7 +19,7 @@ export const CartItem = ({ laptop }) => {
                 <div className="flex top">
                     <h5>{laptop.title}</h5>
                     <h4>${laptop.price}</h4>
-                    <i class="fa fa-trash" aria-hidden="true" onClick={onDeleteCartItem}></i>
+                    <i className="fa fa-trash" aria-hidden="true" onClick={onDeleteCartItem}></i>
                 </div>
             </div>
         </div>

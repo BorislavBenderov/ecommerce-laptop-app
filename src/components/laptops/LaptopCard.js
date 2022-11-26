@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export const LaptopCard = ({ laptop }) => {
+
     return (
         <>
             <Link to={`/details/${laptop.id}`}>

@@ -46,7 +46,7 @@ export const Header = () => {
                         </>
                         : <>
                             <Link to="/cart" className="navbar-signin">
-                                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true">{currentUser?.cart?.length}</i>
+                                <i className="fa fa-shopping-cart fa-lg" aria-hidden="true">{currentUser?.cart?.length}</i>
                             </Link>
                             <Link to="#" className="navbar-signin" onClick={onLogout}>
                                 <span>Logout</span>
