@@ -9,20 +9,24 @@ export const BuyNow = ({ currentLaptop }) => {
     const navigate = useNavigate();
 
     const onBuy = () => {
-        updateDoc(doc(database, 'users', loggedUser.uid), {
-            cart: arrayUnion({
-                title: currentLaptop.title,
-                price: currentLaptop.price,
-                id: currentLaptop.id,
-                image: currentLaptop.image
+        if (loggedUser) {
+            updateDoc(doc(database, 'users', loggedUser.uid), {
+                cart: arrayUnion({
+                    title: currentLaptop.title,
+                    price: currentLaptop.price,
+                    id: currentLaptop.id,
+                    image: currentLaptop.image
+                })
             })
-        })
-            .then(() => {
-                navigate('/cart');
-            })
-            .catch((err) => {
-                alert(err.message);
-            })
+                .then(() => {
+                    navigate('/cart');
+                })
+                .catch((err) => {
+                    alert(err.message);
+                })
+        } else {
+            navigate('/login');
+        }
     }
 
     return (
