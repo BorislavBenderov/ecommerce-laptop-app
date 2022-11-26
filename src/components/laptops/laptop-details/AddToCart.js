@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { database } from "../../../firebaseConfig";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const AddToCart = ({ currentLaptop }) => {
     const { loggedUser } = useContext(AuthContext);
@@ -19,7 +20,7 @@ export const AddToCart = ({ currentLaptop }) => {
                 })
             })
                 .then(() => {
-                    alert('Added to Cart!');
+                    toast.success(`${currentLaptop.title} added to cart!`);
                 })
                 .catch((err) => {
                     alert(err.message);
@@ -31,6 +32,9 @@ export const AddToCart = ({ currentLaptop }) => {
     }
 
     return (
-        <button className="add" onClick={addedToCart}>Add to cart</button>
+        <>
+            <button className="add" onClick={addedToCart}>Add to cart</button>
+            <Toaster />
+        </>
     );
 }

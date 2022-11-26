@@ -208,6 +208,10 @@
   .btn-container {
     width: 100%;
   }
+
+  .product-container a {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width: 310px) {

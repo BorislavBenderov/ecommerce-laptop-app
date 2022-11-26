@@ -12,7 +12,8 @@ import { Create } from "./components/admin/Create";
 import { Edit } from "./components/admin/Edit";
 import { Payment } from "./components/laptops/Payment";
 import { Purchase } from "./components/laptops/Purchase";
-import { ProtectedRoutes } from './ProtectedRoutes';
+import { ProtectedRoutes } from './protected-routes/ProtectedRoutes';
+import { ProtectedAdminRoutes } from './protected-routes/ProtectedAdminRoutes';
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/purchase" element={<Purchase />} />
                 <Route path="/payment" element={<Payment />} />
+              </Route>
+              <Route element={<ProtectedAdminRoutes />}>
                 <Route path="/create" element={<Create />} />
                 <Route path="/edit/:laptopId" element={<Edit />} />
               </Route>

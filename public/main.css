@@ -415,6 +415,10 @@ footer {
   display: flex;
 }
 
+.details-desc p {
+  margin: 5px 0;
+}
+
 .laptop-info {
   display: flex;
   flex-direction: column;
@@ -469,6 +473,10 @@ footer {
   overflow-x: hidden;
 }
 
+.product-container a {
+  text-align: center;
+}
+
 .product {
   display: flex;
   grid-gap: 30px;
@@ -503,6 +511,10 @@ footer {
 .btn-container {
   width: 400px;
   margin: auto;
+}
+
+.btn-container a {
+  text-align: center;
 }
 
 .btn {
@@ -658,10 +670,22 @@ form * {
   flex-direction: column;
 }
 
+.purchase a {
+  text-align: center;
+}
+
 .purchase h2 {
   text-transform: capitalize;
   margin-top: 15px 0;
   font-weight: 900;
   font-size: 40px;
   color: black;
+}
+
+.fa-shopping-cart, .fa-shopping-bag {
+  color: red
+}
+
+.fa-trash {
+  cursor: pointer;
 }

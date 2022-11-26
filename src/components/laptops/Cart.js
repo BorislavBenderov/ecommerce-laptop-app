@@ -12,17 +12,22 @@ export const Cart = () => {
             <div className="product-container">
                 {currentUser?.cart?.length > 0
                     ? currentUser.cart.map(laptop => <CartItem key={laptop.id} laptop={laptop} />)
-                    : <p>No laptops in the cart!</p>}
+                    : <>
+                        <p>No laptops in the cart!</p>
+                        <Link to='/' className="btn">Shop Laptops</Link>
+                    </>}
             </div>
-            <div className="cart-bottom">
-                <div className="total">
-                    <h3>Subtotal:</h3>
-                    <h3>${totalPrice}</h3>
+            {currentUser?.cart?.length > 0
+                ? <div className="cart-bottom">
+                    <div className="total">
+                        <h3>Subtotal:</h3>
+                        <h3>${totalPrice}</h3>
+                    </div>
+                    <div className="btn-container">
+                        <Link to="/payment" className="btn">Pay</Link>
+                    </div>
                 </div>
-                <div className="btn-container">
-                    <Link to="/payment" className="btn">Pay</Link>
-                </div>
-            </div>
+                : ''}
         </div>
     );
 }
