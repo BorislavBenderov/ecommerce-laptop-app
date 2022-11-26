@@ -5,7 +5,7 @@ import { LaptopCard } from './LaptopCard';
 
 export const Laptops = () => {
     const { laptops } = useContext(LaptopContext);
-    
+
     return (
         <>
             <section className="banner">
