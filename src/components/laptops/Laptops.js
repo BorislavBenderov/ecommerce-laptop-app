@@ -28,13 +28,15 @@ export const Laptops = () => {
                 <div className="laptops-grid">
                     {laptops.map(laptop => <LaptopCard key={laptop.id} laptop={laptop} />)}
                 </div>
-                <div className="banner-card">
-                    <img
-                        src={LP}
-                        className="banner-img-2"
-                        alt=""
-                    />
-                </div>
+                <section className='banner-2'>
+                    <div className="banner-card">
+                        <img
+                            src={LP}
+                            className="banner-img-2"
+                            alt=""
+                        />
+                    </div>
+                </section>
             </section>
         </>
     );
