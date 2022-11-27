@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import LaptopImg from '../../assets/laptop.jpg';
+import LP from '../../assets/laptop-2.jpg';
 import { LaptopContext } from '../../contexts/LaptopContext';
 import { LaptopCard } from './LaptopCard';
 
@@ -25,7 +26,14 @@ export const Laptops = () => {
             </section>
             <section className="laptops">
                 <div className="laptops-grid">
-                    {laptops.map(laptop => <LaptopCard key={laptop.id} laptop={laptop}/> )}
+                    {laptops.map(laptop => <LaptopCard key={laptop.id} laptop={laptop} />)}
+                </div>
+                <div className="banner-card">
+                    <img
+                        src={LP}
+                        className="banner-img-2"
+                        alt=""
+                    />
                 </div>
             </section>
         </>

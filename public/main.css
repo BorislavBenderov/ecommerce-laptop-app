@@ -105,7 +105,7 @@ nav {
 }
 
 .banner-img {
-  object-position: top;
+  object-position: bottom;
 }
 
 .banner-card:hover .banner-img {
@@ -269,9 +269,9 @@ input~.checked-radio-bg {
   background: var(--light-azure);
 }
 
-footer {
-  background: rgb(51, 8, 8);
-  padding: 80px var(--px) 40px;
+.footer {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .footer-content {
@@ -682,7 +682,8 @@ form * {
   color: black;
 }
 
-.fa-shopping-cart, .fa-shopping-bag {
+.fa-shopping-cart,
+.fa-shopping-bag {
   color: red
 }
 

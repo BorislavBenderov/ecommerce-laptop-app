@@ -15,6 +15,7 @@ import { Purchase } from "./components/laptops/Purchase";
 import { NotFound } from "./components/not-found/NotFound";
 import { ProtectedRoutes } from './protected-routes/ProtectedRoutes';
 import { ProtectedAdminRoutes } from './protected-routes/ProtectedAdminRoutes';
+import { Footer } from "./components/footer.js/Footer";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <Footer />
           </div>
         </LaptopContextProvider>
       </UserContextProvider>
