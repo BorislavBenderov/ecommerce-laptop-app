@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Ecommerce Application with React JS
+![My Image](/src/assets/home.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Ecommerce application created with React JS. Users have possibility to order laptops.
 
-In the project directory, you can run:
+## Services
 
-### `npm start`
+# Login
+![My Image](/src/assets/login.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This service is initialized with one user, which can be used for immediate testing:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- gabi@abv.bg: 123456
 
-### `npm test`
+# Register
+![My Image](/src/assets/register.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create a new user by entered email, password and confirmation password.
 
-### `npm run build`
+# Home
+![My Image](/src/assets/laptops.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After login or register user will be redirect to a home page. On this page user can see all
+laptops with their titles and prices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Laptop Details
+![My Image](/src/assets/laptop-details.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When user click on some laptop he will see laptop name and details and will have possibility
+to add to cart.
 
-### `npm run eject`
+# Add to Cart
+![My Image](/src/assets/popup.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When user click add to cart button popup will imagin to show added laptop to cart.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Cart
+![My Image](/src/assets/cart.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+When buy now button is clicked or cart icon button page with all added to cart laptops will
+show with their prices and total price.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Order
+![My Image](/src/assets/payment.png)
 
-## Learn More
+When pay button is clicked in cart page with added to cart laptops and billing details will
+show. When user fill in billing form and click pay button order will be made and cart will
+be empty.
+![My Image](/src/assets/complete-order.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Admin Users
+![My Image](/src/assets/admin-details.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Admin users have possibility to create, edit and delete laptop posts.
+![My Image](/src/assets/create.png)
 
-### Code Splitting
+# Guest Users
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Guest users can see laptops and their details but they cant make orders.
 
-### Analyzing the Bundle Size
+# Logout
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When user click on logout button in navigation panel his session has expired.
