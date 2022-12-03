@@ -1,5 +1,5 @@
-import { arrayRemove, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { useContext, useState } from "react";
+import { arrayRemove, doc, updateDoc } from "firebase/firestore";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { database } from "../../firebaseConfig";
 
@@ -7,9 +7,13 @@ export const CartItem = ({ laptop }) => {
     const { currentUser } = useContext(UserContext);
 
     const onDeleteCartItem = async () => {
-        await updateDoc(doc(database, 'users', currentUser.uid), {
-            cart: arrayRemove(laptop)
-        })
+        try {
+            await updateDoc(doc(database, 'users', currentUser.uid), {
+                cart: arrayRemove(laptop)
+            });
+        } catch (error) {
+            alert(error.message);
+        }
     }
 
     return (
