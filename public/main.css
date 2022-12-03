@@ -271,7 +271,7 @@ input~.checked-radio-bg {
 
 .footer {
   text-align: center;
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .footer-content {
@@ -458,7 +458,6 @@ input~.checked-radio-bg {
 }
 
 .cart-container {
-  height: 100vh;
   width: 600px;
   background-color: #fff;
   padding: 40px 10px;

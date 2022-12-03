@@ -9,8 +9,6 @@ export const Edit = () => {
     const { laptopId } = useParams();
     const navigate = useNavigate();
 
-  
-
     const [values, setValues] = useState({
         title: currentLaptop.title,
         description: currentLaptop.description,
