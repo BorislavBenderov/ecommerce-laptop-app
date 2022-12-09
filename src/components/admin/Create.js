@@ -1,8 +1,10 @@
 import { addDoc, collection } from "firebase/firestore";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { database } from "../../firebaseConfig";
 
 export const Create = () => {
+    const [err, setErr] = useState('');
     const navigate = useNavigate();
 
     const onCreate = (e) => {
@@ -16,7 +18,7 @@ export const Create = () => {
         const image = formData.get('imageUrl');
 
         if (title === '' || description === '' || price === '' || image === '') {
-            alert('Please fill all fields!');
+            setErr('Please fill all fields!');
             return;
         }
 
@@ -32,7 +34,7 @@ export const Create = () => {
                 navigate('/');
             })
             .catch((err) => {
-                alert(err.message);
+                setErr(err.message);
             })
     }
 
@@ -48,6 +50,7 @@ export const Create = () => {
             <label htmlFor="imageUrl"></label>
             <input type="text" placeholder="Image" id="imageUrl" name="imageUrl" />
             <button type="submit">Create</button>
+            <p className="errors">{err}</p>
         </form>
     );
 }

@@ -5,6 +5,7 @@ import { LaptopContext } from '../../contexts/LaptopContext';
 import { database } from "../../firebaseConfig";
 
 export const Edit = () => {
+    const [err, setErr] = useState('');
     const { currentLaptop } = useContext(LaptopContext);
     const { laptopId } = useParams();
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ export const Edit = () => {
         const image = formData.get('imageUrl');
 
         if (title === '' || description === '' || price === '' || image === '') {
-            alert('Please fill all fields!');
+            setErr('Please fill all fields!');
             return;
         }
 
@@ -50,7 +51,7 @@ export const Edit = () => {
                 navigate('/');
             })
             .catch((err) => {
-                alert(err.message);
+                setErr(err.message);
             })
     }
 
@@ -66,6 +67,7 @@ export const Edit = () => {
             <label htmlFor="imageUrl"></label>
             <input type="text" placeholder="Image" id="imageUrl" name="imageUrl" value={values.image} onChange={changeHandler} />
             <button type="submit">Edit</button>
+            <p className="errors">{err}</p>
         </form>
     );
 }
