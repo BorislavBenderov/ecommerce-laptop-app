@@ -699,6 +699,6 @@ form * {
 
 .errors {
   text-align: center;
-  color: red;
+  color: yellow;
   margin-top: 10px;
 }
