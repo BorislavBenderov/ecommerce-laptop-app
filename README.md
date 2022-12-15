@@ -63,3 +63,7 @@ Guest users can see laptops and their details but they cant make orders.
 ### Logout
 
 When user click on logout button in navigation panel his session has expired.
+
+## Live Demo
+
+https://borislavbenderov.github.io/ecommerce-laptop-app
