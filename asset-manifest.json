@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ecommerce-laptop-app/static/css/main.f7f3d584.css",
-    "main.js": "/ecommerce-laptop-app/static/js/main.183dd79e.js",
+    "main.js": "/ecommerce-laptop-app/static/js/main.443afc42.js",
     "static/media/laptop.jpg": "/ecommerce-laptop-app/static/media/laptop.c903fde6e4b80f62a90a.jpg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/ecommerce-laptop-app/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/laptop-2.jpg": "/ecommerce-laptop-app/static/media/laptop-2.a5fe9f1de6784722e2a1.jpg",
@@ -11,10 +11,10 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/ecommerce-laptop-app/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/ecommerce-laptop-app/index.html",
     "main.f7f3d584.css.map": "/ecommerce-laptop-app/static/css/main.f7f3d584.css.map",
-    "main.183dd79e.js.map": "/ecommerce-laptop-app/static/js/main.183dd79e.js.map"
+    "main.443afc42.js.map": "/ecommerce-laptop-app/static/js/main.443afc42.js.map"
   },
   "entrypoints": [
     "static/css/main.f7f3d584.css",
-    "static/js/main.183dd79e.js"
+    "static/js/main.443afc42.js"
   ]
 }
