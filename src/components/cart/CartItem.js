@@ -46,10 +46,10 @@ export const CartItem = ({ laptop }) => {
             <div className="item-desc">
                 <div className="flex top">
                     <h5>{laptop.title}</h5>
-                    <h4>${laptop.price}</h4>
-                    <button onClick={onIncrease}>+</button>
+                    <h4>${currentLaptop.price}</h4>
+                    <button className="maths-btn" onClick={onIncrease}>+</button>
                     <p>{laptop.quantity}</p>
-                    <button onClick={onDecrease}>-</button>
+                    <button className="maths-btn" onClick={onDecrease}>-</button>
                     <i className="fa fa-trash" aria-hidden="true" onClick={onDeleteCartItem}></i>
                 </div>
             </div>
