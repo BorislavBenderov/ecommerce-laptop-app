@@ -16,8 +16,28 @@ import { NotFound } from "./components/not-found/NotFound";
 import { ProtectedRoutes } from './protected-routes/ProtectedRoutes';
 import { ProtectedAdminRoutes } from './protected-routes/ProtectedAdminRoutes';
 import { Footer } from "./components/footer.js/Footer";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { login, logout } from "./feautures/user/userSlice";
+import { auth } from "./firebaseConfig";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (userAuth) => {
+      if (userAuth) {
+        dispatch(login({
+          email: userAuth.email,
+          uid: userAuth.uid
+        }));
+      } else {
+        dispatch((logout()));
+      }
+    })
+  }, []);
+
   return (
     <AuthContextProvider>
       <UserContextProvider>
