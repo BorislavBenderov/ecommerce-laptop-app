@@ -1,19 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from 'firebase/auth';
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../feautures/user/userSlice";
 import { auth } from "../../firebaseConfig";
 
 export const Header = () => {
-    const  loggedUser = useSelector((store) => store.user.user);
-
-    const { users } = useContext(UserContext);
+    const loggedUser = useSelector((store) => store.user.user);
+    const { cart } = useSelector((store) => store.cart);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const currentUser = users.find(user => user.uid === loggedUser?.uid);
+    const userCart = cart.filter(user => user.uid === loggedUser?.uid);
 
     const onLogout = () => {
         signOut(auth)
@@ -51,13 +48,12 @@ export const Header = () => {
                         </>
                         : <>
                             <Link to="/cart" className="navbar-signin">
-                                <i className="fa fa-shopping-cart fa-lg" aria-hidden="true">{currentUser?.cart?.length}</i>
+                                <i className="fa fa-shopping-cart fa-lg" aria-hidden="true">{userCart?.length}</i>
                             </Link>
                             <Link to="#" className="navbar-signin" onClick={onLogout}>
                                 <span>Logout</span>
                             </Link>
                         </>}
-
                 </div>
             </div>
         </header>
