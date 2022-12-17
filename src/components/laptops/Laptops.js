@@ -18,9 +18,6 @@ export const Laptops = () => {
                     <div className="card-content">
                         <h2 className="card-title">Laptops</h2>
                     </div>
-                    <div className="card-content">
-                        <h2 className="card-title"></h2>
-                    </div>
                 </div>
             </section>
             <section className="laptops">
