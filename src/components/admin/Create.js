@@ -14,7 +14,7 @@ export const Create = () => {
 
         const title = formData.get('title');
         const description = formData.get('description');
-        const price = formData.get('price');
+        const price = Number(formData.get('price'));
         const image = formData.get('imageUrl');
 
         if (title === '' || description === '' || price === '' || image === '') {
@@ -22,11 +22,17 @@ export const Create = () => {
             return;
         }
 
+        if (price !== Number(price)) {
+            setErr('Please add a number for price!');
+            return;
+        }
+
         const laptopData = {
             title,
             description,
             price,
-            image
+            image,
+            quantity: 1
         };
 
         addDoc(collection(database, 'laptops'), laptopData)

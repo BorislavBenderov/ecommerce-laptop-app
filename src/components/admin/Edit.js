@@ -6,7 +6,6 @@ import { database } from "../../firebaseConfig";
 
 export const Edit = () => {
     const { currentLaptop } = useSelector((state) => state.laptops);
-    console.log(currentLaptop);
     const [err, setErr] = useState('');
     const { laptopId } = useParams();
     const navigate = useNavigate();
@@ -32,7 +31,7 @@ export const Edit = () => {
 
         const title = formData.get('title');
         const description = formData.get('description');
-        const price = formData.get('price');
+        const price = Number(formData.get('price'));
         const image = formData.get('imageUrl');
 
         if (title === '' || description === '' || price === '' || image === '') {
@@ -40,11 +39,17 @@ export const Edit = () => {
             return;
         }
 
+        if (price !== Number(price)) {
+            setErr('Please add a number for price!');
+            return;
+        }
+
         const laptopData = {
             title,
             description,
             price,
-            image
+            image,
+            quantity: 1
         };
 
         updateDoc(doc(database, 'laptops', laptopId), laptopData)
