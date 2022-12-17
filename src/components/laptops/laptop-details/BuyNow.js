@@ -1,11 +1,10 @@
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { database } from "../../../firebaseConfig";
 
 export const BuyNow = ({ currentLaptop }) => {
-    const { loggedUser } = useContext(AuthContext);
+    const loggedUser = useSelector((store) => store.user.user);
     const navigate = useNavigate();
 
     const onBuy = () => {

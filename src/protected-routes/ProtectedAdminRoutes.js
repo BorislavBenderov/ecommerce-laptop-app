@@ -1,9 +1,8 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
-import { AuthContext } from '../contexts/AuthContext';
 
 export const ProtectedAdminRoutes = () => {
-    const { loggedUser } = useContext(AuthContext);
+    const loggedUser = useSelector((store) => store.user.user);
 
     return (
         loggedUser?.uid === 'tDBOgC5e3VUMwYQJEyECdljlKhV2'

@@ -3,13 +3,12 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
 import { login } from "../../feautures/user/userSlice";
+import { auth } from "../../firebaseConfig";
 
 export const Login = () => {
     const dispatch = useDispatch();
     const [err, setErr] = useState('');
-    const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onLogin = (e) => {

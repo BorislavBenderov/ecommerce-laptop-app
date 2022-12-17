@@ -1,16 +1,14 @@
 import { browserLocalPersistence, createUserWithEmailAndPassword, setPersistence } from 'firebase/auth';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
 import { database } from '../../firebaseConfig';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../feautures/user/userSlice';
+import { auth } from '../../firebaseConfig';
 
 export const Register = () => {
     const [err, setErr] = useState('');
-    const { auth } = useContext(AuthContext);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

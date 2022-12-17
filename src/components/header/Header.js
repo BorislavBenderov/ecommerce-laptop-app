@@ -1,13 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from 'firebase/auth';
 import { useContext } from "react";
-import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from "../../contexts/UserContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../feautures/user/userSlice";
+import { auth } from "../../firebaseConfig";
 
 export const Header = () => {
-    const { auth, loggedUser } = useContext(AuthContext);
+    const  loggedUser = useSelector((store) => store.user.user);
+
     const { users } = useContext(UserContext);
     const navigate = useNavigate();
     const dispatch = useDispatch();

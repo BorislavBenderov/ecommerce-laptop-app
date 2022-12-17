@@ -1,16 +1,16 @@
 import { deleteDoc, doc, onSnapshot } from "firebase/firestore";
 import { useContext, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
 import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
 import { LaptopCard } from "../LaptopCard";
 import { BuyNow } from "./BuyNow";
+import { useSelector } from "react-redux";
 
 export const LaptopDetails = () => {
     const { currentLaptop, setCurrentLaptop, laptops } = useContext(LaptopContext);
-    const { loggedUser } = useContext(AuthContext);
+    const loggedUser = useSelector((store) => store.user.user);
     const { laptopId } = useParams();
     const navigate = useNavigate();
 
