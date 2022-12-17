@@ -1,6 +1,5 @@
 import { browserLocalPersistence, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../feautures/user/userSlice";
