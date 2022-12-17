@@ -18,7 +18,7 @@ export const AddToCart = ({ currentLaptop }) => {
                     quantity: isIncluding.quantity + Number(currentLaptop.quantity),
                 })
                     .then(() => {
-                        console.log('updated')
+                        toast.success(`${currentLaptop.title} added to cart!`);
                     })
                     .catch((err) => {
                         alert(err.message);
