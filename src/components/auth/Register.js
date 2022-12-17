@@ -5,10 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { doc, setDoc } from 'firebase/firestore';
 import { database } from '../../firebaseConfig';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../feautures/user/userSlice';
 
 export const Register = () => {
     const [err, setErr] = useState('');
     const { auth } = useContext(AuthContext);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const onRegister = (e) => {
@@ -33,12 +36,15 @@ export const Register = () => {
         setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 createUserWithEmailAndPassword(auth, email, password)
-                    .then((res) => {
-                        setDoc(doc(database, 'users', res.user.uid), {
-                            displayName: email,
-                            uid: res.user.uid
+                    .then((userAuth) => {
+                        setDoc(doc(database, 'users', userAuth.user.uid), {
+                            displayName: userAuth.user.email,
+                            uid: userAuth.user.uid
                         });
-
+                        dispatch(login({
+                            email: userAuth.user.email,
+                            uid: userAuth.user.uid
+                        }));
                         navigate('/');
                     })
                     .catch((err) => {
