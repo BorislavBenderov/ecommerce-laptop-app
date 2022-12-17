@@ -13,14 +13,14 @@ export const Cart = () => {
         <div className="cart-container">
             <h2>Your Cart</h2>
             <div className="product-container">
-                {cart?.length > 0
-                    ? cart.map(laptop => <CartItem key={laptop.id} laptop={laptop} />)
+                {userCart?.length > 0
+                    ? userCart.map(laptop => <CartItem key={laptop.id} laptop={laptop} />)
                     : <>
                         <p>No laptops in the cart!</p>
                         <Link to='/' className="btn">Shop Laptops</Link>
                     </>}
             </div>
-            {cart?.length > 0
+            {userCart?.length > 0
                 ? <div className="cart-bottom">
                     <div className="total">
                         <h3>Subtotal:</h3>
