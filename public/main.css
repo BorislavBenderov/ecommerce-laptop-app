@@ -457,6 +457,7 @@ input~.checked-radio-bg {
   padding: 40px 10px;
   position: relative;
   margin: auto;
+  text-align: center;
 }
 
 .product-container {
@@ -467,7 +468,7 @@ input~.checked-radio-bg {
 }
 
 .product-container a {
-  text-align: center;
+  margin: 40px auto;
 }
 
 .product {
@@ -489,6 +490,7 @@ input~.checked-radio-bg {
   justify-content: space-between;
   width: 350px;
   color: #324d67;
+  align-items: center;
 }
 
 .cart-bottom {
@@ -544,6 +546,10 @@ input~.checked-radio-bg {
   width: 50%;
   margin-left: 10px;
   border-left: 1px solid rgba(117, 111, 111, 0.277);
+}
+
+.billing-container h1, .cart-total-container h1 {
+  text-align: center;
 }
 
 .ordered-item {
@@ -641,14 +647,13 @@ form * {
 .payment button {
   margin-top: 10px;
   width: 100%;
-  background-color: white;
-  color: #080710;
+  color: white;
   padding: 15px 0;
   font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
-  border: 1px solid black;
+  background-color: red;
 }
 
 .purchase {
@@ -701,4 +706,10 @@ form * {
   text-align: center;
   color: yellow;
   margin-top: 10px;
+}
+
+.maths-btn {
+  width: 20px;
+  background-color: red;
+  border-radius: 6px;
 }
