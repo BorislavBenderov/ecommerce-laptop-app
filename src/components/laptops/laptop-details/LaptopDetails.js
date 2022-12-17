@@ -6,7 +6,6 @@ import { AddToCart } from "./AddToCart";
 import { LaptopCard } from "../LaptopCard";
 import { BuyNow } from "./BuyNow";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import { getCurrentLaptop } from "../../../feautures/laptops/laptopSlice";
 
 export const LaptopDetails = () => {

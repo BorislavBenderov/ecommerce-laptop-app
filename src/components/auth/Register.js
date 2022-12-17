@@ -1,7 +1,5 @@
 import { browserLocalPersistence, createUserWithEmailAndPassword, setPersistence } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { doc, setDoc } from 'firebase/firestore';
-import { database } from '../../firebaseConfig';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../feautures/user/userSlice';
@@ -35,10 +33,6 @@ export const Register = () => {
             .then(() => {
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userAuth) => {
-                        setDoc(doc(database, 'users', userAuth.user.uid), {
-                            displayName: userAuth.user.email,
-                            uid: userAuth.user.uid
-                        });
                         dispatch(login({
                             email: userAuth.user.email,
                             uid: userAuth.user.uid
