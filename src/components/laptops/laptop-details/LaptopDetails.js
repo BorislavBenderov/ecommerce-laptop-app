@@ -20,7 +20,7 @@ export const LaptopDetails = () => {
         onSnapshot(doc(database, 'laptops', laptopId), (snapshot) => {
             dispatch(getCurrentLaptop(({ ...snapshot.data(), id: snapshot.id })));
         });
-    }, [laptopId]);
+    }, [dispatch, laptopId]);
 
     const onDelete = (e) => {
         const confirmation = window.confirm('Are you sure you want to delete this post?');
