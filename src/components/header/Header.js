@@ -3,17 +3,21 @@ import { signOut } from 'firebase/auth';
 import { useContext } from "react";
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from "../../contexts/UserContext";
+import { useDispatch } from "react-redux";
+import { logout } from "../../feautures/user/userSlice";
 
 export const Header = () => {
     const { auth, loggedUser } = useContext(AuthContext);
     const { users } = useContext(UserContext);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const currentUser = users.find(user => user.uid === loggedUser?.uid);
 
     const onLogout = () => {
         signOut(auth)
             .then(() => {
+                dispatch(logout());
                 navigate('/');
             })
             .catch((err) => {
