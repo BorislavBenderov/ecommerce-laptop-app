@@ -3,7 +3,6 @@ import { Register } from "./components/auth/Register";
 import { Header } from "./components/header/Header";
 import { Laptops } from "./components/laptops/Laptops";
 import { Routes, Route } from 'react-router-dom';
-import { AuthContextProvider } from './contexts/AuthContext';
 import { LaptopContextProvider } from './contexts/LaptopContext';
 import { UserContextProvider } from "./contexts/UserContext";
 import { LaptopDetails } from "./components/laptops/laptop-details/LaptopDetails";
@@ -39,7 +38,6 @@ function App() {
   }, []);
 
   return (
-    <AuthContextProvider>
       <UserContextProvider>
         <LaptopContextProvider>
           <div className="App">
@@ -64,7 +62,6 @@ function App() {
           </div>
         </LaptopContextProvider>
       </UserContextProvider>
-    </AuthContextProvider>
   );
 }
 
