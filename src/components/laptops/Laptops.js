@@ -25,7 +25,7 @@ export const Laptops = () => {
             </section>
             <section className="laptops">
                 <div className="laptops-grid">
-                    {laptops.map(laptop => <LaptopCard key={laptop.id} laptop={laptop} />)}
+                    {laptops?.map(laptop => <LaptopCard key={laptop.id} laptop={laptop} />)}
                 </div>
                 <section className='banner-2'>
                     <div className="banner-card">
