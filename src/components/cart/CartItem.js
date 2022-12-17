@@ -1,18 +1,42 @@
-import { arrayRemove, doc, updateDoc } from "firebase/firestore";
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { useSelector } from "react-redux";
 import { database } from "../../firebaseConfig";
 
 export const CartItem = ({ laptop }) => {
-    const { currentUser } = useContext(UserContext);
+    const { laptops } = useSelector((store) => store.laptops);
+    const currentLaptop = laptops.find(x => x.id === laptop.laptopId);
 
     const onDeleteCartItem = async () => {
         try {
-            await updateDoc(doc(database, 'users', currentUser.uid), {
-                cart: arrayRemove(laptop)
-            });
+            await deleteDoc(doc(database, 'users', laptop.id));
         } catch (error) {
             alert(error.message);
+        }
+    }
+
+    const onIncrease = () => {
+        try {
+            updateDoc(doc(database, 'users', laptop.id), {
+                price: laptop.price + currentLaptop.price,
+                quantity: laptop.quantity + currentLaptop.quantity,
+            })
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    const onDecrease = () => {
+        if (laptop.quantity === 1) {
+            onDeleteCartItem();
+        } else {
+            try {
+                updateDoc(doc(database, 'users', laptop.id), {
+                    price: laptop.price - currentLaptop.price,
+                    quantity: laptop.quantity - currentLaptop.quantity,
+                })
+            } catch (error) {
+                alert(error.message);
+            }
         }
     }
 
@@ -23,6 +47,9 @@ export const CartItem = ({ laptop }) => {
                 <div className="flex top">
                     <h5>{laptop.title}</h5>
                     <h4>${laptop.price}</h4>
+                    <button onClick={onIncrease}>+</button>
+                    <p>{laptop.quantity}</p>
+                    <button onClick={onDecrease}>-</button>
                     <i className="fa fa-trash" aria-hidden="true" onClick={onDeleteCartItem}></i>
                 </div>
             </div>
