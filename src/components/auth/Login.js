@@ -1,10 +1,13 @@
 import { browserLocalPersistence, setPersistence, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import { login } from "../../feautures/user/userSlice";
 
 export const Login = () => {
+    const dispatch = useDispatch();
     const [err, setErr] = useState('');
     const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -25,7 +28,11 @@ export const Login = () => {
         setPersistence(auth, browserLocalPersistence)
             .then(() => {
                 signInWithEmailAndPassword(auth, email, password)
-                    .then(() => {
+                    .then((userAuth) => {
+                        dispatch(login({
+                            email: userAuth.user.email,
+                            uid: userAuth.user.uid,
+                        }))
                         navigate('/');
                     })
                     .catch((err) => {
@@ -33,7 +40,7 @@ export const Login = () => {
                     })
             })
     }
-    
+
     return (
         <form className='auth' onSubmit={onLogin}>
             <h3>Login Here</h3>
