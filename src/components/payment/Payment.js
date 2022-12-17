@@ -1,11 +1,14 @@
-import { deleteField, doc, updateDoc } from 'firebase/firestore';
-import { useContext } from 'react';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
 import { database } from '../../firebaseConfig';
 
 export const Payment = () => {
-    const { currentUser, totalPrice } = useContext(UserContext);
+    const loggedUser = useSelector((store) => store.user.user);
+    const { cart } = useSelector((store) => store.cart);
+    const userCart = cart.filter(user => user.uid === loggedUser.uid);
+    const totalPrice = userCart?.reduce((acc, curVal) => acc + Number(curVal.price),
+        0);
     const navigate = useNavigate();
 
     const onPay = (e) => {
@@ -24,22 +27,21 @@ export const Payment = () => {
             return;
         }
 
-        updateDoc(doc(database, 'users', currentUser.uid), {
-            cart: deleteField()
-        })
-        .then(() => {
-            navigate('/purchase');
-        })
-        .catch((err) => {
-            alert(err.message);
-        })
+        try {
+            userCart.forEach((user) => {
+                deleteDoc(doc(database, 'users', user.id));
+            })
+            navigate('/purchase')
+        } catch (error) {
+            alert(error.message);
+        }
     }
     return (
         <div className="payment-container">
             <div className="cart-total-container">
                 <h1>Cart</h1>
                 <section className="ordered-details">
-                    {currentUser?.cart?.map(laptop => <div className="ordered-item" key={laptop.id}>
+                    {userCart?.map(laptop => <div className="ordered-item" key={laptop.id}>
                         <img src={laptop.image} alt="" />
                         <p>{laptop.title}</p>
                         <p>${laptop.price}</p>
