@@ -2,6 +2,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { database } from '../../firebaseConfig';
+import { PaymentCard } from './PaymentCard';
 
 export const Payment = () => {
     const loggedUser = useSelector((store) => store.user.user);
@@ -41,11 +42,7 @@ export const Payment = () => {
             <div className="cart-total-container">
                 <h1>Cart</h1>
                 <section className="ordered-details">
-                    {userCart?.map(laptop => <div className="ordered-item" key={laptop.id}>
-                        <img src={laptop.image} alt="" />
-                        <p>{laptop.title}</p>
-                        <p>${laptop.price}</p>
-                    </div>)}
+                    {userCart?.map(laptop => <PaymentCard key={laptop.id} laptop={laptop}/>)}
 
                     <div className="ordered-sum">
                         <section className="subtotal">
