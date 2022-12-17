@@ -1,23 +1,26 @@
 import { deleteDoc, doc, onSnapshot } from "firebase/firestore";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { LaptopContext } from "../../../contexts/LaptopContext";
 import { database } from "../../../firebaseConfig";
 import { AddToCart } from "./AddToCart";
 import { LaptopCard } from "../LaptopCard";
 import { BuyNow } from "./BuyNow";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { getCurrentLaptop } from "../../../feautures/laptops/laptopSlice";
 
 export const LaptopDetails = () => {
-    const { currentLaptop, setCurrentLaptop, laptops } = useContext(LaptopContext);
+    const { currentLaptop } = useSelector((store) => store.laptops);
+    const dispatch = useDispatch();
+    const { laptops } = useSelector((store) => store.laptops);
     const loggedUser = useSelector((store) => store.user.user);
     const { laptopId } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         onSnapshot(doc(database, 'laptops', laptopId), (snapshot) => {
-            setCurrentLaptop({ ...snapshot.data(), id: snapshot.id });
-        })
+            dispatch(getCurrentLaptop(({ ...snapshot.data(), id: snapshot.id })));
+        });
     }, [laptopId]);
 
     const onDelete = (e) => {

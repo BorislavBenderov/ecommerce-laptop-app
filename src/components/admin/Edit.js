@@ -1,12 +1,13 @@
 import { doc, updateDoc } from "firebase/firestore";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { LaptopContext } from '../../contexts/LaptopContext';
 import { database } from "../../firebaseConfig";
 
 export const Edit = () => {
+    const { currentLaptop } = useSelector((state) => state.laptops);
+    console.log(currentLaptop);
     const [err, setErr] = useState('');
-    const { currentLaptop } = useContext(LaptopContext);
     const { laptopId } = useParams();
     const navigate = useNavigate();
 

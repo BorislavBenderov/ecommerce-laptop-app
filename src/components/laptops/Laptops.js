@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import LaptopImg from '../../assets/laptop.jpg';
 import LP from '../../assets/laptop-2.jpg';
-import { LaptopContext } from '../../contexts/LaptopContext';
 import { LaptopCard } from './LaptopCard';
+import { useSelector } from 'react-redux';
 
 export const Laptops = () => {
-    const { laptops } = useContext(LaptopContext);
+    const { laptops } = useSelector((store) => store.laptops);
 
     return (
         <>
