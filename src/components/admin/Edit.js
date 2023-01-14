@@ -6,6 +6,7 @@ import { database } from "../../firebaseConfig";
 
 export const Edit = () => {
     const { currentLaptop } = useSelector((state) => state.laptops);
+    const [loading, setLoading] = useState(false);
     const [err, setErr] = useState('');
     const { laptopId } = useParams();
     const navigate = useNavigate();
@@ -52,12 +53,15 @@ export const Edit = () => {
             quantity: 1
         };
 
+        setLoading(true);
         updateDoc(doc(database, 'laptops', laptopId), laptopData)
             .then(() => {
                 navigate('/');
+                setLoading(false);
             })
             .catch((err) => {
                 setErr(err.message);
+                setLoading(false);
             })
     }
 
@@ -72,7 +76,7 @@ export const Edit = () => {
             <textarea type="text" placeholder="Price" id="price" name="price" value={values.price} onChange={changeHandler} />
             <label htmlFor="imageUrl"></label>
             <input type="text" placeholder="Image" id="imageUrl" name="imageUrl" value={values.image} onChange={changeHandler} />
-            <button type="submit">Edit</button>
+            <button type="submit">{loading ? "Loading..." : "Edit"}</button>
             <p className="errors">{err}</p>
         </form>
     );
